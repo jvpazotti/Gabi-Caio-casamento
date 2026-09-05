@@ -19,12 +19,13 @@
     </symbol>
   </svg>
 
+  <a class="skip-link" href="#conteudo" data-i18n="skipContent">Ir para o conteúdo</a>
   <header class="nav-shell" id="topo">
-    <a class="brand" href="#inicio" aria-label="Caio & Gabriela — início">C <span>&</span> G</a>
-    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+    <a class="brand" href="#inicio" aria-label="Caio & Gabriela — início" data-i18n-aria="homeLabel">C <span>&</span> G</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" data-i18n-aria="openMenu" aria-controls="nav-links" aria-expanded="false">
       <span></span><span></span>
     </button>
-    <nav class="nav-links" aria-label="Navegação principal">
+    <nav class="nav-links" id="nav-links" aria-label="Navegação principal" data-i18n-aria="mainNavigation">
       <a href="#casamento" data-i18n="navWedding">O casamento</a>
       <a href="#cerimonia" data-i18n="navCeremony">Cerimônia</a>
       <a href="#recepcao" data-i18n="navParty">Festa</a>
@@ -32,7 +33,7 @@
       <a href="#presentes" data-i18n="navGifts">Presentes</a>
       <a href="#hospedagem" data-i18n="navHotels">Hospedagem</a>
       <a href="#recados" data-i18n="navMessages">Recados</a>
-      <span class="lang-switch" aria-label="Selecionar idioma">
+      <span class="lang-switch" aria-label="Selecionar idioma" data-i18n-aria="chooseLanguage">
         <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
         <i></i>
         <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
@@ -40,7 +41,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="conteudo">
     <section class="hero" id="inicio">
       <div class="arch arch-one" aria-hidden="true"></div>
       <div class="arch arch-two" aria-hidden="true"></div>
@@ -54,7 +55,7 @@
         <p class="hero-date">24 · 04 · 2027</p>
         <p class="hero-line" data-i18n="heroLine">Esperamos vocês para celebrar este dia conosco.</p>
       </div>
-      <a href="#contagem" class="scroll-cue" aria-label="Continuar para a contagem regressiva">
+      <a href="#contagem" class="scroll-cue" aria-label="Continuar para a contagem regressiva" data-i18n-aria="countdownLink">
         <span data-i18n="scroll">deslize</span>
         <i></i>
       </a>
@@ -73,7 +74,7 @@
     <section class="story section-light" id="casamento">
       <div class="story-grid reveal">
         <div class="story-copy">
-          <p class="eyebrow">24 de abril de 2027</p>
+          <p class="eyebrow" data-i18n="weddingDate">24 de abril de 2027</p>
           <h2 data-i18n="ourWedding">Nosso casamento</h2>
           <p data-i18n="story1">Chegou a hora de celebrarmos um dos momentos mais especiais das nossas vidas — e será ainda mais especial ter vocês ao nosso lado.</p>
           <p data-i18n="story2">Criamos este espaço para reunir as informações do nosso casamento. Esperamos vocês em São Paulo.</p>
@@ -97,11 +98,11 @@
         <div class="venue-meta">
           <div>
             <small data-i18n="dateLabel">Data</small>
-            <strong>24 de abril de 2027</strong>
+            <strong data-i18n="weddingDate">24 de abril de 2027</strong>
           </div>
           <div>
             <small data-i18n="timeLabel">Horário</small>
-            <strong>16h30</strong>
+            <strong data-i18n="weddingTime">16h30</strong>
           </div>
         </div>
         <p class="address">Rua Dinamarca, 32<br>Jardim Europa · São Paulo — SP</p>
@@ -156,7 +157,7 @@
       <form class="wedding-form reveal" id="rsvp-form" name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="rsvp" />
         <input type="hidden" name="subject" data-remove-prefix value="Novo RSVP — Caio & Gabriela" />
-        <p class="hidden-field"><label>Não preencha: <input name="bot-field" /></label></p>
+        <p class="hidden-field" aria-hidden="true"><label>Não preencha: <input tabindex="-1" autocomplete="off" name="bot-field" /></label></p>
 
         <div class="field full">
           <label for="rsvp-name" data-i18n="fullName">Nome completo</label>
@@ -175,7 +176,7 @@
           </label>
         </fieldset>
 
-        <div class="field full" id="attending-details">
+        <div class="field full" id="attending-details" hidden>
           <label for="food"><span data-i18n="foodRestriction">Restrição alimentar</span> <small data-i18n="optional">(opcional)</small></label>
           <input id="food" name="restricao_alimentar" type="text" placeholder="Conte para nós se houver alguma." data-i18n-placeholder="foodPlaceholder" />
         </div>
@@ -186,14 +187,15 @@
         </div>
 
         <button class="primary-button" id="rsvp-submit" type="submit" data-i18n="confirmAttendance">Confirmar presença</button>
-        <p class="form-error" id="rsvp-error" hidden data-i18n="rsvpError">Não conseguimos registrar sua resposta agora. Por favor, tente novamente.</p>
+        <p class="form-error" id="rsvp-error" role="alert" hidden data-i18n="rsvpError">Não conseguimos registrar sua resposta agora. Por favor, tente novamente.</p>
       </form>
 
-      <div class="rsvp-success" id="rsvp-success" hidden>
+      <div class="rsvp-success" id="rsvp-success" tabindex="-1" hidden>
         <p class="eyebrow">RSVP</p>
         <h3 data-i18n="rsvpSuccessTitle">Resposta registrada!</h3>
-        <p data-i18n="rsvpSuccessText">Obrigada. Sua confirmação foi enviada para a nossa assessoria.</p>
-        <p class="rsvp-success-note" data-i18n="rsvpSuccessNote">Para confirmar outra pessoa da família, basta preencher o formulário novamente com o nome dela.</p>
+        <p data-i18n="rsvpSuccessText">Obrigada. Sua confirmação foi registrada com sucesso.</p>
+        <p class="rsvp-success-note" data-i18n="rsvpSuccessNote">Você pode confirmar outra pessoa da família pelo botão abaixo.</p>
+        <button class="primary-button" type="button" id="rsvp-another" data-i18n="rsvpAnother">Confirmar outra pessoa</button>
       </div>
 
     </section>
@@ -231,8 +233,8 @@
         <h2 data-i18n="infoTitle">Para guardar.</h2>
       </div>
       <div class="info-grid reveal">
-        <article><small data-i18n="dateLabel">Data</small><strong>24 de abril<br>de 2027</strong></article>
-        <article><small data-i18n="timeLabel">Horário</small><strong>16h30</strong></article>
+        <article><small data-i18n="dateLabel">Data</small><strong data-i18n="weddingDate">24 de abril de 2027</strong></article>
+        <article><small data-i18n="timeLabel">Horário</small><strong data-i18n="weddingTime">16h30</strong></article>
         <article><small data-i18n="ceremonyLabel">Cerimônia</small><strong>Paróquia São José<br>Jardim Europa</strong></article>
         <article><small data-i18n="partyLabel">Festa</small><strong>Rosewood<br>São Paulo</strong></article>
         <article><small>Dress code</small><strong>Formal</strong></article>
@@ -285,7 +287,7 @@
         <form class="wedding-form dark-form reveal" id="recados-form" name="recados" method="POST" action="/obrigada.html" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="recados" />
           <input type="hidden" name="subject" data-remove-prefix value="Novo recado — Caio & Gabriela" />
-          <p class="hidden-field"><label>Não preencha: <input name="bot-field" /></label></p>
+          <p class="hidden-field" aria-hidden="true"><label>Não preencha: <input tabindex="-1" autocomplete="off" name="bot-field" /></label></p>
           <div class="field full">
             <label for="message-name" data-i18n="yourName">Seu nome</label>
             <input id="message-name" name="nome" type="text" required />
@@ -294,8 +296,14 @@
             <label for="message" data-i18n="yourMessage">Seu recado para Caio & Gabriela</label>
             <textarea id="message" name="recado" rows="5" required></textarea>
           </div>
-          <button class="primary-button light-button" type="submit" data-i18n="sendMessage">Enviar recado</button>
+          <button class="primary-button light-button" id="recados-submit" type="submit" data-i18n="sendMessage">Enviar recado</button>
+          <p class="form-error" id="recados-error" role="alert" hidden data-i18n="messageError">Não conseguimos enviar seu recado agora. Seu texto foi mantido; tente novamente.</p>
         </form>
+        <div class="message-success" id="recados-success" tabindex="-1" hidden>
+          <h3 data-i18n="messageSuccessTitle">Obrigada pelo carinho.</h3>
+          <p data-i18n="messageSuccessText">Seu recado foi recebido. Vamos guardar suas palavras com carinho.</p>
+          <button class="primary-button light-button" type="button" id="recados-another" data-i18n="messageAnother">Enviar outro recado</button>
+        </div>
       </div>
     </section>
 
@@ -336,5 +344,6 @@
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/forms.js"></script>
 </body>
 </html>

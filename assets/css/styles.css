@@ -509,7 +509,7 @@ footer .footer-names span { font-style:italic; }
 footer i { width:1px;height:65px;background:#746c61;margin:35px 0; }
 .footer-last { font-family:var(--serif);font-size:20px;letter-spacing:0; }
 
-.reveal {
+.reveal.pending-reveal {
   opacity:0;
   transform:translateY(22px);
   transition: opacity .9s ease, transform .9s ease;
@@ -832,3 +832,20 @@ footer i { width:1px;height:65px;background:#746c61;margin:35px 0; }
 }
 
 .gift-card:focus-visible { outline: 2px solid var(--green); outline-offset: 5px; }
+
+/* Formulários e navegação acessível. */
+[hidden] { display: none !important; }
+section[id], main[id] { scroll-margin-top: 90px; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.primary-button:disabled { opacity: .55; cursor: wait; }
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 12px 18px; background: var(--paper); color: var(--ink); transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+.dark-form .form-error { color: #ffe0d4; }
+.message-success { align-self: center; text-align: center; padding: 40px 24px; border: 1px solid rgba(238,229,215,.35); }
+.message-success h3 { font-family: var(--serif); font-size: clamp(38px, 5vw, 56px); font-weight: 400; line-height: 1.1; margin: 0 0 22px; }
+.message-success p { font-size: 13px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal.pending-reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
+  .gift-card { transition: none; }
+}

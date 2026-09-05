@@ -7,9 +7,10 @@ HTML, CSS e JavaScript, sem instalação de dependências ou etapa de build.
 
 - `index.html`: página principal, listas de presentes e formulários.
 - `pix.html`: página de presente via Pix, aberta em uma nova aba.
-- `obrigada.html`: agradecimento após o envio de recados.
+- `obrigada.html`: agradecimento usado no envio de recados sem JavaScript.
 - `assets/css/`: estilos do site e da página Pix.
-- `assets/js/script.js`: contagem regressiva, navegação, animações e RSVP.
+- `assets/js/script.js`: contagem regressiva, navegação e animações.
+- `assets/js/forms.js`: envio, erro, confirmação e reinício de RSVP e recados.
 - `assets/js/i18n.js`: traduções PT/EN compartilhadas.
 - `assets/js/pix-config.js`: imagem, código e destinatário do Pix.
 - `assets/js/pix.js`: exibição do Pix e botão de copiar.

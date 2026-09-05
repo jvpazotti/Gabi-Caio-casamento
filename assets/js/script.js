@@ -33,15 +33,26 @@ setInterval(updateCountdown, 1000);
 const menuButton = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
-menuButton.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+function setMenuOpen(isOpen) {
+  navLinks.classList.toggle("open", isOpen);
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.dataset.i18nAria = isOpen ? "closeMenu" : "openMenu";
+  menuButton.setAttribute("aria-label", weddingText(menuButton.dataset.i18nAria));
+}
+menuButton.addEventListener("click", () => setMenuOpen(!navLinks.classList.contains("open")));
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && navLinks.classList.contains("open")) {
+    setMenuOpen(false);
+    menuButton.focus();
+  }
+});
+document.addEventListener("click", event => {
+  if (!event.target.closest(".nav-shell")) setMenuOpen(false);
 });
 
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
+    setMenuOpen(false);
   });
 });
 
@@ -57,59 +68,10 @@ if ("IntersectionObserver" in window) {
     });
   }, { threshold: 0.14 });
 
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => {
+    el.classList.add("pending-reveal");
+    observer.observe(el);
+  });
 } else {
   reveals.forEach(el => el.classList.add("visible"));
-}
-
-
-// V7 — RSVP simples, uma pessoa por envio, sem redirecionamento
-const v7RsvpForm = document.getElementById("rsvp-form");
-const v7AttendingDetails = document.getElementById("attending-details");
-const v7RsvpSuccess = document.getElementById("rsvp-success");
-const v7RsvpError = document.getElementById("rsvp-error");
-const v7RsvpSubmit = document.getElementById("rsvp-submit");
-
-function updateV7RsvpFields() {
-  const choice = document.querySelector('input[name="presenca"]:checked')?.value;
-  const attending = choice === "sim";
-  if (v7AttendingDetails) v7AttendingDetails.hidden = !attending;
-  if (!attending) {
-    const food = document.getElementById("food");
-    if (food) food.value = "";
-  }
-}
-
-document.querySelectorAll('input[name="presenca"]').forEach(radio => {
-  radio.addEventListener("change", updateV7RsvpFields);
-});
-
-if (v7RsvpForm) {
-  v7RsvpForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    v7RsvpError.hidden = true;
-    v7RsvpSubmit.disabled = true;
-
-    const formData = new FormData(v7RsvpForm);
-    const encoded = new URLSearchParams();
-    formData.forEach((value, key) => encoded.append(key, value));
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encoded.toString()
-      });
-
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-      v7RsvpForm.hidden = true;
-      v7RsvpSuccess.hidden = false;
-      v7RsvpSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
-    } catch (error) {
-      console.error("RSVP submission error:", error);
-      v7RsvpError.hidden = false;
-      v7RsvpSubmit.disabled = false;
-    }
-  });
 }

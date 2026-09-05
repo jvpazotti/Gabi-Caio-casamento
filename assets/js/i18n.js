@@ -33,6 +33,49 @@ Object.assign(translations.en, {
   "pixCopied": "Code copied! Paste it into your banking app.",
   "pixCopyManual": "Select and copy the code above, then paste it into your banking app."
 });
+Object.assign(translations.pt, {
+  "weddingDate": "24 de abril de 2027",
+  "weddingTime": "16h30",
+  "skipContent": "Ir para o conteúdo",
+  "openMenu": "Abrir menu",
+  "closeMenu": "Fechar menu",
+  "mainNavigation": "Navegação principal",
+  "chooseLanguage": "Selecionar idioma",
+  "homeLabel": "Caio & Gabriela — início",
+  "countdownLink": "Continuar para a contagem regressiva",
+  "rsvpAnother": "Confirmar outra pessoa",
+  "rsvpSuccessNote": "Você pode confirmar outra pessoa da família pelo botão abaixo.",
+  "sending": "Enviando…",
+  "blankField": "Preencha este campo com texto, não apenas espaços.",
+  "messageError": "Não conseguimos enviar seu recado agora. Seu texto foi mantido; tente novamente.",
+  "messageSuccessTitle": "Obrigada pelo carinho.",
+  "messageSuccessText": "Seu recado foi recebido. Vamos guardar suas palavras com carinho.",
+  "messageAnother": "Enviar outro recado",
+  "backToSite": "Voltar ao site"
+});
+Object.assign(translations.en, {
+  "weddingDate": "April 24, 2027",
+  "weddingTime": "4:30 pm",
+  "skipContent": "Skip to content",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu",
+  "mainNavigation": "Main navigation",
+  "chooseLanguage": "Choose language",
+  "homeLabel": "Caio & Gabriela — home",
+  "countdownLink": "Continue to the countdown",
+  "rsvpAnother": "RSVP for another person",
+  "rsvpSuccessNote": "Use the button below to RSVP for another family member.",
+  "sending": "Sending…",
+  "blankField": "Enter some text, not just spaces.",
+  "messageError": "We couldn’t send your message. Your text has been kept; please try again.",
+  "messageSuccessTitle": "Thank you for your kindness.",
+  "messageSuccessText": "Your message has been received. We will cherish your kind words.",
+  "messageAnother": "Send another message",
+  "backToSite": "Back to the website"
+});
+function weddingText(key) {
+  return translations[document.documentElement.lang === "en" ? "en" : "pt"][key] || key;
+}
 function setLanguage(lang){
   const chosen=translations[lang]?lang:"pt";
   document.documentElement.lang=chosen==="pt"?"pt-BR":"en";
@@ -46,6 +89,7 @@ function setLanguage(lang){
   document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(translations[chosen][k]!==undefined)el.textContent=translations[chosen][k]});
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const k=el.dataset.i18nPlaceholder;if(translations[chosen][k]!==undefined)el.placeholder=translations[chosen][k]});
   document.querySelectorAll(".lang-btn").forEach(btn=>{const active=btn.dataset.lang===chosen;btn.classList.toggle("active",active);btn.setAttribute("aria-pressed",active?"true":"false")});
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", weddingText(el.dataset.i18nAria)));
   window.dispatchEvent(new Event("weddinglanguagechange"));
 }
 document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
