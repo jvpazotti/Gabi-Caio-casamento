@@ -1,0 +1,46 @@
+CAIO & GABRIELA — V13
+CONFIGURAÇÃO DOS E-MAILS DOS FORMULÁRIOS NO NETLIFY
+
+O site já está preparado para usar Netlify Forms com dois formulários separados:
+
+1) Formulário: rsvp
+   Destino desejado: gabi_pazotti@yahoo.com.br
+   Assunto configurado no HTML: Novo RSVP — Caio & Gabriela
+
+2) Formulário: recados
+   Destinos desejados:
+   - gabi_pazotti@yahoo.com.br
+   - caio.faro.nunes@gmail.com
+   Assunto configurado no HTML: Novo recado — Caio & Gabriela
+
+IMPORTANTE
+Os endereços que recebem as notificações não devem ser colocados no HTML público do site. O Netlify define os destinatários na configuração do projeto. Assim, os e-mails pessoais não ficam expostos no código-fonte da página.
+
+DEPOIS DE PUBLICAR ESTA V13 NO NETLIFY:
+
+A. Abra o projeto do casamento no Netlify.
+B. Vá em Project configuration > Notifications > Emails and webhooks > Form submission notifications.
+C. Clique em Add notification.
+D. Crie uma notificação de e-mail para o formulário "rsvp" e informe:
+   gabi_pazotti@yahoo.com.br
+E. Crie uma notificação de e-mail para o formulário "recados" e informe:
+   gabi_pazotti@yahoo.com.br
+F. Crie uma segunda notificação de e-mail para o formulário "recados" e informe:
+   caio.faro.nunes@gmail.com
+
+Criar duas notificações separadas para "recados" garante que ambos recebam a mensagem mesmo se a interface do Netlify aceitar apenas um destinatário por notificação.
+
+TESTE RECOMENDADO
+Depois de publicar e configurar as notificações:
+1. Faça um RSVP de teste pelo site.
+2. Confirme se ele aparece em Forms > rsvp no Netlify e chega ao e-mail da Gabi.
+3. Envie um recado de teste.
+4. Confirme se ele aparece em Forms > recados e chega aos dois e-mails.
+
+ALTERAÇÕES DA V13
+- URL da lista Zara Home substituída pela nova URL fornecida.
+- RSVP permanece registrado pelo Netlify Forms, pronto para notificação no e-mail da Gabi.
+- Recados permanecem registrados pelo Netlify Forms, prontos para notificação nos e-mails da Gabi e do Caio.
+- Incluído assunto próprio para cada tipo de e-mail.
+- Incluído honeypot anti-spam também no formulário de recados.
+- Texto de confirmação do RSVP atualizado para não mencionar mais a assessoria.

@@ -1,0 +1,106 @@
+SITE CAIO & GABRIELA — VERSÃO 1
+
+ARQUIVOS
+- index.html: página principal
+- styles.css: identidade visual e responsividade
+- script.js: contagem regressiva, menu mobile e animações
+- obrigada.html: página exibida após envio dos formulários
+
+COMO PUBLICAR NO NETLIFY
+1. Você pode arrastar a pasta "caio-gabriela-site" para a área de upload do Netlify.
+2. Se preferir usar o ZIP, a tela atual do Netlify também aceita ZIP.
+3. Depois do deploy, abra a URL temporária .netlify.app para revisar.
+4. Só depois da aprovação conecte caioegabriela.com.
+
+IMPORTANTE SOBRE FORMULÁRIOS
+O HTML já contém marcação compatível com Netlify Forms:
+- formulário "rsvp"
+- formulário "recados"
+
+Dependendo das configurações da sua conta, pode ser necessário ativar "Form detection" no painel do Netlify e fazer um novo deploy.
+
+AINDA VAMOS PERSONALIZAR
+- Fotografias reais de Caio e Gabriela
+- Nome e WhatsApp da cerimonialista
+- Lista de presentes
+- Data-limite do RSVP, se desejada
+- RSVP com busca por nome/grupo familiar e lista fechada de convidados
+- Mural moderado de recados
+- Ajustes finos de tipografia, paleta e textos
+
+ENDEREÇOS USADOS
+Cerimônia:
+Paróquia São José do Jardim Europa
+Rua Dinamarca, 32 — Jardim Europa — São Paulo/SP
+Horário exibido: 16h30
+
+Recepção:
+Rosewood São Paulo
+Rua Itapeva, 435 — Bela Vista — São Paulo/SP
+
+
+VERSÃO 2 — ALTERAÇÕES
+- Removida a seção “Da luz do fim da tarde à celebração da noite”.
+- Cerimônia agora segue diretamente para a recepção no Rosewood São Paulo.
+- Frase “Esperamos vocês para celebrar este dia conosco.” passou a usar a fonte serifada editorial.
+- Nome da cerimonialista atualizado para: Juliana Praddo Monsó.
+- WhatsApp ainda pendente de inclusão.
+
+
+VERSÃO 3 — ALTERAÇÕES
+- Substituído “Recepção” por “Festa” em todos os pontos visíveis do site.
+- Menu superior atualizado para “Festa”.
+- Seção do Rosewood atualizada para “A festa”.
+- Bloco de informações atualizado para “Festa”.
+
+
+VERSÃO 4 — ALTERAÇÕES
+- Nome oficial da assessoria atualizado para: Hora do Buquê.
+- Contato 1: Juliana Praddo Monsó — +55 11 98256-7766.
+- Contato 2: Rodrigo Monsó — +55 11 97413-5462.
+- Adicionados dois botões funcionais de WhatsApp, um para cada assessor.
+
+
+VERSÃO 5
+- Seção de hotéis para convidados de fora.
+- PT | EN em todo o site.
+- Sem salão, manicure, cabeleireiro ou aeroportos nesta versão.
+
+
+VERSÃO 7
+- Dress code detalhado para mulheres e homens.
+- Branco, off-white, marfim, champagne muito claro e tons semelhantes ao branco explicitamente reservados à noiva.
+- Para homens: social completo (terno, camisa social, gravata e sapato social).
+- RSVP simplificado: cada convidado confirma individualmente “sim” ou “não”.
+- RSVP é enviado sem redirecionamento, evitando erro 404.
+- Mantida a notificação por Netlify Forms para contato@horadobuque.com.br (configuração no painel do Netlify).
+- Restaurada a seção de Presentes.
+- Restaurado o quadro-resumo “Informações / Para guardar”.
+- Menu “São Paulo” alterado para “Hospedagem”.
+- Mantida a seção com as 3 sugestões de hotéis.
+- Site segue bilíngue PT | EN.
+
+
+VERSÃO 8
+- Monograma inserido discretamente na abertura do site, abaixo da data.
+- Seção de presentes atualizada com links clicáveis para Zara Home e Toolbox.
+- Cards de presentes abrem em nova aba.
+- Arquivo local do monograma adicionado ao projeto: monograma-cg.jpg
+
+
+VERSÃO 9
+- Removido o monograma/logo da abertura do site.
+- Nenhuma outra alteração realizada em relação à V8.
+
+
+VERSÃO 10 — FOTOS
+- Foto do vinhedo aplicada na abertura do site.
+- Criado enquadramento específico da foto do vinhedo para celular.
+- Foto de Milão aplicada à seção “Nosso casamento”.
+- Foto do beijo à noite aplicada à seção “Festa / Rosewood”.
+- Faixas pretas e elementos de captura de tela removidos das fotos verticais.
+- Fotos comprimidas para uso web, preservando boa qualidade visual.
+
+
+V11 — MONOGRAMA
+O monograma Ex-Libris aprovado foi vetorizado e incorporado diretamente ao index.html como SVG inline (sem fundo e sem imagem raster). Ele aparece no cabeçalho e na abertura do site, adaptando-se ao tamanho da tela sem perder definição. O arquivo monograma-cg.svg também foi incluído apenas como cópia de apoio.
