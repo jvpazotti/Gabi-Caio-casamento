@@ -849,3 +849,120 @@ section[id], main[id] { scroll-margin-top: 90px; }
   .reveal.pending-reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
   .gift-card { transition: none; }
 }
+
+/* Refinamento visual: mesma identidade, proporções e acabamentos mais leves. */
+body { -webkit-font-smoothing: antialiased; }
+.nav-shell {
+  color: var(--ink);
+  background: rgba(251,248,242,.94);
+  border-bottom: 1px solid rgba(40,36,31,.09);
+  mix-blend-mode: normal;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-links { align-items: center; }
+.nav-links a { text-underline-offset: 7px; text-decoration-thickness: 1px; }
+.nav-links a:hover { text-decoration: underline; }
+.lang-btn { opacity: .72; }
+.eyebrow { letter-spacing: .23em; }
+.hero h1 { line-height: .94; letter-spacing: -.035em; }
+.hero-date { font-size: 22px; letter-spacing: .19em; margin-top: 28px; }
+.hero-line { line-height: 1.5; }
+.countdown { max-width: 940px; }
+.countdown strong { font-variant-numeric: tabular-nums; }
+.story-copy h2, .section-heading h2, .info-intro h2,
+.message-copy h2, .planner h2, .travel-heading h2 {
+  font-size: clamp(48px, 5.6vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.story-copy p:not(.eyebrow), .section-heading p:last-child,
+.message-copy p:last-child, .travel-heading > p:last-child,
+.planner-card > p:not(.eyebrow) { line-height: 1.9; }
+.venue-copy h2 { line-height: .96; }
+.venue-meta { border-top-color: rgba(40,36,31,.18); }
+.text-link { font-size: 10px; gap: 12px; line-height: 1.6; }
+.text-link span { font-size: inherit; }
+.text-link span:last-child:not(:first-child) { font-size: 15px; }
+.muted-link { color: #62564b; }
+.section-heading { margin-bottom: 58px; }
+.wedding-form { gap: 30px; }
+.field label, fieldset legend { font-size: 10px; letter-spacing: .14em; }
+.field label small { color: var(--muted); }
+input[type="text"], textarea {
+  padding: 14px 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  background: rgba(255,255,255,.23);
+  border-bottom-color: rgba(40,36,31,.3);
+}
+input[type="text"]::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+.attendance-option { padding: 15px 0; }
+.attendance .attendance-option { font-size: 13px; letter-spacing: 0; line-height: 1.7; }
+.attendance-option input { width: 17px; height: 17px; accent-color: var(--green); flex-shrink: 0; }
+.primary-button, .outline-button {
+  min-height: 54px;
+  letter-spacing: .16em;
+  font-size: 10px;
+  background: var(--green);
+  border-color: var(--green);
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.primary-button:hover:not(:disabled) { opacity: 1; background: var(--green-deep); border-color: var(--green-deep); }
+.outline-button { background: transparent; color: var(--green); }
+.light-button { background: var(--cream); border-color: var(--cream); color: var(--green-deep); }
+.light-button:hover:not(:disabled) { background: var(--paper); border-color: var(--paper); }
+.dark-form input[type="text"], .dark-form textarea { background: rgba(238,229,215,.035); }
+.gifts-inner { width: 100%; max-width: 940px; }
+.gifts h2 {
+  max-width: 18ch;
+  margin: 22px auto 28px;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.gifts p:not(.eyebrow) { font-size: 14px; line-height: 1.9; margin-bottom: 46px; }
+.gift-list-grid { max-width: 940px; gap: 20px; }
+.gift-card {
+  min-height: 210px;
+  padding: 28px;
+  background: rgba(251,248,242,.64);
+  border-color: rgba(40,36,31,.16);
+}
+.gift-card strong { font-size: clamp(32px, 3vw, 42px); line-height: 1.1; margin: 24px 0; }
+.gift-card-label { color: #65594e; }
+.gift-card-link { padding-top: 17px; border-top: 1px solid rgba(40,36,31,.12); line-height: 1.6; letter-spacing: .12em; }
+.gift-card:hover { background: var(--paper); border-color: rgba(40,36,31,.32); }
+.hotel-card h3 { line-height: 1.08; text-wrap: balance; }
+.hotel-number { margin-bottom: 42px; }
+.hotel-description { font-size: 13px; line-height: 1.85; }
+.hotel-note { font-size: 11px; color: #665c52; line-height: 1.85; }
+.rsvp-success, .message-success { scroll-margin-top: 100px; }
+.rsvp-success h3 { line-height: 1.05; }
+.rsvp-success-note { color: #665c52; font-size: 12px; line-height: 1.8; }
+
+@media (max-width: 850px) {
+  .nav-links { align-items: stretch; }
+  .menu-toggle { width: 44px; height: 44px; }
+  .nav-links .lang-btn { min-height: 36px; min-width: 36px; }
+  .hero-copy { padding-bottom: 11vh; }
+  .hero h1 { font-size: clamp(54px, 11vw, 78px); }
+  .hero-date { font-size: 19px; }
+  .hero-line { font-size: 20px; }
+  .story-copy h2, .section-heading h2, .info-intro h2,
+  .message-copy h2, .planner h2, .travel-heading h2 { font-size: clamp(42px, 9vw, 60px); }
+  .venue-copy h2 { font-size: clamp(48px, 10vw, 72px); }
+  .venue-meta { flex-wrap: wrap; gap: 24px 30px; }
+  .section-heading, .travel-heading { margin-bottom: 42px; }
+  .gifts h2 { font-size: clamp(42px, 9vw, 60px); }
+  .gift-list-grid { gap: 16px; }
+  .gift-card { min-height: 180px; padding: 24px; }
+  .gift-card strong { font-size: 36px; margin: 18px 0; }
+  .hotel-number { margin-bottom: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .primary-button, .outline-button { transition: none; }
+  .gift-card:hover { transform: none; }
+}

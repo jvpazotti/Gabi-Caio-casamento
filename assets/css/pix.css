@@ -21,3 +21,17 @@
 .pix-page :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 .pix-page [hidden] { display: none !important; }
 @media (max-width: 480px) { .pix-header { padding: 16px 20px; } .pix-main { margin-top: 24px; } .pix-panel { padding: 26px 20px; } }
+
+/* O mesmo acabamento de papel e linhas finas da lista de presentes. */
+.pix-header { border-bottom: 1px solid rgba(40,36,31,.09); }
+.pix-main { margin-top: 54px; }
+.pix-main h1 { line-height: 1.06; letter-spacing: -.025em; }
+.pix-panel { padding: 36px; background: linear-gradient(135deg, var(--ivory), #f7f2e9); }
+.pix-panel h2 { margin-top: 6px; }
+.pix-panel p { line-height: 1.85; }
+.pix-back { text-decoration-color: var(--sand); text-underline-offset: 7px; }
+.pix-footer { font-size: 23px; letter-spacing: 0; }
+@media (max-width: 480px) {
+  .pix-main { margin-top: 36px; }
+  .pix-panel { padding: 28px 22px; }
+}
