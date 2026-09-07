@@ -73,6 +73,34 @@ Object.assign(translations.en, {
   "messageAnother": "Send another message",
   "backToSite": "Back to the website"
 });
+Object.assign(translations.pt, {
+  "muralEyebrow": "Mural de recados",
+  "muralTitle": "Palavras para guardar.",
+  "muralIntro": "Um pouquinho do carinho de quem faz parte da nossa história.",
+  "muralLoading": "Carregando recados…",
+  "muralEmpty": "Este espaço está esperando as primeiras palavras de carinho.",
+  "muralError": "Não conseguimos carregar os recados agora.",
+  "muralMore": "Ver mais recados",
+  "muralRetry": "Tentar novamente",
+  "muralWrite": "Deixe seu carinho também ↗",
+  "muralConsent": "Pode publicar meu nome e recado no mural, após a aprovação dos noivos.",
+  "muralReadMore": "Ler recado completo",
+  "muralReadLess": "Recolher recado"
+});
+Object.assign(translations.en, {
+  "muralEyebrow": "Guestbook",
+  "muralTitle": "Words to treasure.",
+  "muralIntro": "A little of the love from those who are part of our story.",
+  "muralLoading": "Loading messages…",
+  "muralEmpty": "This space is waiting for its first words of love.",
+  "muralError": "We couldn’t load the messages right now.",
+  "muralMore": "View more messages",
+  "muralRetry": "Try again",
+  "muralWrite": "Leave your kind words too ↗",
+  "muralConsent": "You may publish my name and message in the guestbook after the couple approves it.",
+  "muralReadMore": "Read full message",
+  "muralReadLess": "Show less"
+});
 function weddingText(key) {
   return translations[document.documentElement.lang === "en" ? "en" : "pt"][key] || key;
 }

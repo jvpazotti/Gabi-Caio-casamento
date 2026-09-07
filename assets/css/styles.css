@@ -966,3 +966,22 @@ input[type="text"]::placeholder, textarea::placeholder { color: var(--muted); op
   .primary-button, .outline-button { transition: none; }
   .gift-card:hover { transform: none; }
 }
+
+/* Mural: mensagens aprovadas, com a mesma tipografia da papelaria do site. */
+.mural-section { background: var(--paper); padding: 110px 8vw; text-align: center; }
+.mural-heading { max-width: 650px; margin: 0 auto 48px; }
+.mural-heading h2 { font-size: clamp(44px, 5.6vw, 76px); line-height: 1.04; letter-spacing: -.025em; text-wrap: balance; }
+.mural-heading > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.9; margin-top: 24px; }
+.mural-state { max-width: 620px; margin: 24px auto; color: var(--muted); font-family: var(--serif); font-size: 25px; line-height: 1.5; }
+.mural-grid { max-width: 1120px; margin: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; text-align: left; align-items: start; }
+.mural-card { min-width: 0; padding: 30px; background: var(--ivory); border: 1px solid var(--line); scroll-margin-top: 110px; }
+.mural-card blockquote { margin: 0; }
+.mural-card blockquote p { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--serif); font-size: 25px; line-height: 1.45; margin: 0; }
+.mural-author { border-top: 1px solid var(--line); margin: 28px 0 0; padding-top: 18px; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.mural-card summary { font-size: 11px; cursor: pointer; margin: 18px 0; color: var(--green); text-underline-offset: 4px; }
+.mural-more { display: block; margin: 32px auto 0; }
+.mural-write { display: inline-block; margin-top: 34px; padding: 10px; font-size: 12px; text-underline-offset: 6px; }
+.mural-consent { grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; font-size: 12px; line-height: 1.8; color: var(--cream); cursor: pointer; }
+.mural-consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--cream); flex-shrink: 0; }
+@media (max-width: 850px) { .mural-section { padding: 85px 22px; } .mural-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .mural-grid { grid-template-columns: 1fr; } .mural-card { padding: 26px; } }

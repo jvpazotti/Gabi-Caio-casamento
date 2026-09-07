@@ -1,7 +1,8 @@
 # Casamento de Caio & Gabriela
 
-Site estático em português e inglês, baseado na versão 13 enviada pela Gabriela.
-HTML, CSS e JavaScript, sem instalação de dependências ou etapa de build.
+Site em português e inglês, baseado na versão 13 enviada pela Gabriela.
+As páginas continuam em HTML, CSS e JavaScript. O mural usa Netlify Forms,
+Functions e Blobs para receber, aprovar e exibir recados sem republicar o site.
 
 ## Organização
 
@@ -14,20 +15,32 @@ HTML, CSS e JavaScript, sem instalação de dependências ou etapa de build.
 - `assets/js/i18n.js`: traduções PT/EN compartilhadas.
 - `assets/js/pix-config.js`: imagem, código e destinatário do Pix.
 - `assets/js/pix.js`: exibição do Pix e botão de copiar.
+- `admin.html`: painel privado de aprovação de recados.
+- `assets/js/mural.js`: mural público com mensagens aprovadas.
+- `netlify/functions/`: API pública e API autenticada do mural.
+- `netlify/lib/`: regras de aprovação e integração com Forms e Blobs.
+- `scripts/build.mjs`: gera `dist` apenas com arquivos públicos.
+- `tests/`: testes das regras de publicação e privacidade.
 - `assets/images/`: fotos, monograma e futuro QR Code.
 - `docs/`: instruções e histórico recebidos junto com a versão original.
 
 ## Visualizar localmente
 
-Na raiz do repositório, execute:
+Na raiz do repositório, com Node.js 22 ou superior:
 
 ```sh
-python3 -m http.server 8000
+npm ci
+npm test
+npm run build
+npm run preview:demo
 ```
 
-Abra `http://localhost:8000`. Para encerrar, use Ctrl+C.
-O servidor local permite revisar o visual e a navegação. O recebimento de
-formulários depende do Netlify Forms e não funciona nesse servidor local.
+Abra `http://127.0.0.1:8005` ou `/admin.html` para o painel. A senha de demonstração
+aparece no terminal. Os recados são fictícios e ficam apenas na memória desse
+servidor; nenhum envio é feito ao Netlify. Para encerrar, use Ctrl+C.
+
+Para somente visualizar as páginas, `python3 -m http.server 8000 --directory dist`
+também funciona, mas esse servidor não executa as funções nem recebe formulários.
 
 ## Concluir a configuração do Pix
 
@@ -53,8 +66,12 @@ o texto é selecionado para cópia manual.
 
 ## Hospedagem e formulários
 
-A estrutura existente de Netlify Forms foi preservada. Ao conectar este repositório
-ao Netlify, a pasta publicada é a raiz (`.`), sem comando de build.
+A estrutura existente de Netlify Forms foi preservada, com um novo campo opcional
+`autoriza_mural` nos recados. O `netlify.toml` configura `npm run build`, publicação
+de `dist` e empacotamento das funções. A raiz do repositório não é a pasta pública.
+O ZIP estático anterior não ativa o painel: esta versão precisa de um deploy via
+Git ou Netlify CLI, incluindo as funções.
+Siga [a configuração inicial do mural](docs/MURAL.md) para ativar o painel.
 Consulte `docs/CONFIGURAR-EMAILS-NETLIFY.txt` para as configurações originais de email.
 Esses documentos são referências recebidas; não representam publicação ou configuração
 realizada nesta alteração. Valide o recebimento de RSVP e recados na hospedagem.

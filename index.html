@@ -290,12 +290,16 @@
           <p class="hidden-field" aria-hidden="true"><label>Não preencha: <input tabindex="-1" autocomplete="off" name="bot-field" /></label></p>
           <div class="field full">
             <label for="message-name" data-i18n="yourName">Seu nome</label>
-            <input id="message-name" name="nome" type="text" required />
+            <input id="message-name" name="nome" type="text" autocomplete="name" maxlength="120" required />
           </div>
           <div class="field full">
             <label for="message" data-i18n="yourMessage">Seu recado para Caio & Gabriela</label>
-            <textarea id="message" name="recado" rows="5" required></textarea>
+            <textarea id="message" name="recado" rows="5" maxlength="4000" required></textarea>
           </div>
+          <label class="mural-consent">
+            <input type="checkbox" name="autoriza_mural" value="sim">
+            <span data-i18n="muralConsent">Pode publicar meu nome e recado no mural, após a aprovação dos noivos.</span>
+          </label>
           <button class="primary-button light-button" id="recados-submit" type="submit" data-i18n="sendMessage">Enviar recado</button>
           <p class="form-error" id="recados-error" role="alert" hidden data-i18n="messageError">Não conseguimos enviar seu recado agora. Seu texto foi mantido; tente novamente.</p>
         </form>
@@ -305,6 +309,20 @@
           <button class="primary-button light-button" type="button" id="recados-another" data-i18n="messageAnother">Enviar outro recado</button>
         </div>
       </div>
+    </section>
+
+    <section class="mural-section" id="mural" aria-labelledby="mural-title">
+      <div class="mural-heading">
+        <p class="eyebrow" data-i18n="muralEyebrow">Mural de recados</p>
+        <h2 id="mural-title" data-i18n="muralTitle">Palavras para guardar.</h2>
+        <p data-i18n="muralIntro">Um pouquinho do carinho de quem faz parte da nossa história.</p>
+      </div>
+      <p class="mural-state" id="mural-status" role="status" aria-live="polite" data-i18n="muralLoading">Carregando recados…</p>
+      <div class="mural-grid" id="mural-list" hidden></div>
+      <button type="button" class="outline-button mural-more" id="mural-more" hidden data-i18n="muralMore">Ver mais recados</button>
+      <button type="button" class="outline-button mural-more" id="mural-retry" hidden data-i18n="muralRetry">Tentar novamente</button>
+      <a class="mural-write" href="#recados" data-i18n="muralWrite">Deixe seu carinho também ↗</a>
+      <noscript><style>#mural-status { display: none; }</style><p class="mural-state">Ative o JavaScript para ler o mural. / Enable JavaScript to read the messages.</p></noscript>
     </section>
 
     <section class="planner">
@@ -345,5 +363,6 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/forms.js"></script>
+  <script src="assets/js/mural.js"></script>
 </body>
 </html>

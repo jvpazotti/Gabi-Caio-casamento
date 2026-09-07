@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Recados — Administração · Caio &amp; Gabriela</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <script src="assets/js/admin.js" defer></script>
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <a href="index.html" class="brand">C &amp; G</a>
+    <a href="index.html#mural" target="_blank" rel="noopener">Ver mural ↗</a>
+  </header>
+  <main class="admin-main">
+    <p class="eyebrow">Caio &amp; Gabriela</p>
+    <h1>Recados com carinho.</h1>
+    <p class="admin-intro">Escolha as mensagens que vão fazer parte do mural.</p>
+    <p id="admin-status" class="admin-status" role="status" aria-live="polite"></p>
+    <form id="admin-login" class="admin-login">
+      <label for="admin-password">Senha do painel</label>
+      <input id="admin-password" type="password" autocomplete="current-password" required minlength="64" maxlength="64" pattern="[a-fA-F0-9]{64}" spellcheck="false">
+      <button type="submit" class="primary-button" id="admin-enter">Entrar</button>
+    </form>
+    <section id="admin-dashboard" hidden aria-labelledby="admin-list-title">
+      <div class="admin-toolbar">
+        <div class="admin-tabs" role="group" aria-label="Lista de recados">
+          <button type="button" data-view="inbox" aria-pressed="true">Recebidos</button>
+          <button type="button" data-view="published" aria-pressed="false">Publicados</button>
+        </div>
+        <div class="admin-actions">
+          <button type="button" id="admin-refresh">Atualizar</button>
+          <button type="button" id="admin-logout">Sair</button>
+        </div>
+      </div>
+      <h2 id="admin-list-title" class="admin-list-title" tabindex="-1">Recados recebidos</h2>
+      <p class="admin-note">Apenas mensagens com autorização do convidado podem ser publicadas. Ao retirar um recado do mural, o envio original continua no Netlify.</p>
+      <div id="admin-list" class="admin-list"></div>
+      <p id="admin-empty" hidden>Nenhum recado nesta lista.</p>
+      <nav class="admin-pagination" aria-label="Paginação dos recados">
+        <button type="button" id="admin-previous" hidden>← Anteriores</button>
+        <span id="admin-page-label"></span>
+        <button type="button" id="admin-next" hidden>Próximos →</button>
+      </nav>
+    </section>
+    <noscript>Ative o JavaScript para administrar os recados.</noscript>
+  </main>
+</body>
+</html>

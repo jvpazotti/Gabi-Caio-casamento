@@ -37,5 +37,11 @@ formulários, o armazenamento das submissões e a entrega das notificações por
 Se for usada uma hospedagem diferente, ela precisa disponibilizar um serviço que
 receba esses POSTs; os arquivos estáticos não armazenam as respostas sozinhos.
 
-O Pix continua aguardando os dados reais do banco. Mural público e moderação de
-recados não fazem parte desta implementação.
+O Pix continua aguardando os dados reais do banco.
+
+## Atualização de 06/09/2026 — mural e moderação
+
+O mural e o painel agora estão implementados. Veja `MURAL.md` para ativação no
+Netlify. Os testes de backend usam adaptadores em memória e verificam as regras
+de aprovação. A demonstração local usa as mesmas regras da API, com dados
+fictícios, e permite conferir a publicação e a retirada pelo navegador.
