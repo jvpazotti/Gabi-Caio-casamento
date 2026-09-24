@@ -1110,3 +1110,178 @@ footer .footer-monogram + i { margin-top: 34px; }
   .photos-section h2 { font-size: clamp(44px, 11vw, 62px); }
   .photos-actions { grid-template-columns: 1fr; }
 }
+
+/* V15 — refinamento de design: legibilidade, ritmo entre seções e acabamentos. */
+
+/* Legibilidade: textos corridos maiores e rótulos menos miúdos. */
+.eyebrow { font-size: 11px; }
+.nav-links { font-size: 11px; }
+.story-copy p:not(.eyebrow), .section-heading p:last-child, .message-copy p:last-child,
+.travel-heading > p:last-child, .planner-card > p:not(.eyebrow), .gifts p:not(.eyebrow),
+.photos-inner > p:not(.eyebrow):not(.photos-date), .mural-heading > p:last-child,
+.reception-intro, .dress-intro { font-size: 16px; }
+.story-copy p:not(.eyebrow) { color: #4a433c; }
+.address { font-size: 15px; line-height: 1.75; }
+.venue-meta small, .info-grid small, .hotel-kicker, .gift-card-label,
+.church-photo figcaption, .photos-date { font-size: 10px; }
+.dress-label { font-size: 10px !important; }
+.dress-card p:last-child { font-size: 14px; }
+.hotel-address { font-size: 11px; }
+.hotel-description { font-size: 14px; }
+.hotel-note { font-size: 12px; }
+.text-link, .hotel-link, .gift-card-link, .primary-button, .outline-button { font-size: 11px; }
+.mural-consent { font-size: 13px; }
+
+/* Entrada suave do topo. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo img { animation: hero-zoom 2.6s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-copy > * { animation: hero-in 1.1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .12s; }
+  .hero-copy > :nth-child(3) { animation-delay: .28s; }
+  .hero-copy > :nth-child(4) { animation-delay: .42s; }
+}
+@keyframes hero-in { from { opacity: 0; transform: translateY(18px); } }
+@keyframes hero-zoom { from { transform: scale(1.06); } }
+
+/* Filetes ao lado dos sobretítulos centralizados. */
+.countdown-section > .eyebrow, .dress-inner > .eyebrow, .rsvp .eyebrow,
+.gifts-inner > .eyebrow, .travel-heading > .eyebrow, .photos-inner > .eyebrow,
+.mural-heading > .eyebrow, .planner-card > .eyebrow, .info-intro > .eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.countdown-section > .eyebrow::before, .countdown-section > .eyebrow::after,
+.dress-inner > .eyebrow::before, .dress-inner > .eyebrow::after,
+.rsvp .eyebrow::before, .rsvp .eyebrow::after,
+.gifts-inner > .eyebrow::before, .gifts-inner > .eyebrow::after,
+.travel-heading > .eyebrow::before, .travel-heading > .eyebrow::after,
+.photos-inner > .eyebrow::before, .photos-inner > .eyebrow::after,
+.mural-heading > .eyebrow::before, .mural-heading > .eyebrow::after,
+.planner-card > .eyebrow::before, .planner-card > .eyebrow::after,
+.info-intro > .eyebrow::before, .info-intro > .eyebrow::after {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: .4;
+}
+
+/* Fotos com moldura fina, como uma papelaria. */
+.editorial-photo::after, .rosewood-photo::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(251,248,242,.55);
+  pointer-events: none;
+}
+
+/* Igreja em arco, repetindo o desenho das janelas e do topo do site. */
+.church-photo {
+  justify-self: center;
+  width: min(100%, 420px);
+  background: none;
+  border: 0;
+}
+.church-photo img {
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 0 0;
+  outline: 1px solid rgba(40,36,31,.28);
+  outline-offset: 12px;
+  filter: saturate(.8) contrast(.98);
+}
+.church-photo figcaption {
+  margin-top: 26px;
+  padding: 0;
+  text-align: center;
+}
+
+/* RSVP como um cartão, em vez de uma faixa quase vazia. */
+.rsvp-contact { min-height: 0; padding: 110px 8vw; }
+.rsvp-contact .section-heading {
+  width: 100%;
+  max-width: 760px;
+  padding: 58px 48px 54px;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  outline: 1px solid var(--line);
+  outline-offset: -9px;
+}
+.rsvp-contact .section-heading h2 { margin-bottom: 0; }
+.rsvp-icon { display: block; width: 30px; margin: 0 auto 22px; color: var(--green); }
+.rsvp-icon svg { display: block; width: 100%; height: auto; }
+
+/* Presentes: três por linha, com a última linha centralizada. */
+.gift-list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 940px;
+}
+.gift-card { flex: 0 1 calc((100% - 40px) / 3); min-height: 190px; }
+.gift-card-link { display: flex; justify-content: space-between; }
+.gift-card:hover .gift-card-link { color: var(--green); }
+
+/* Informações: um cartão de convite, com rótulo e valor em linha. */
+.info-section { text-align: center; }
+.info-intro { margin-bottom: 50px; }
+.info-grid {
+  max-width: 760px;
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgba(238,229,215,.26);
+  text-align: left;
+}
+.info-grid article, .info-grid article:not(:first-child) {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: baseline;
+  gap: 20px;
+  min-height: 0;
+  padding: 22px 0;
+  border-right: 0;
+  border-bottom: 1px solid rgba(238,229,215,.18);
+}
+.info-grid small { margin: 0; }
+.info-grid strong { font-size: 25px; }
+
+/* Hospedagem: cartões menos altos. */
+.hotel-card { min-height: 400px; }
+.hotel-number { color: #9a8a78; font-size: 22px; }
+
+/* Fotos em fundo claro, separando dos Recados logo abaixo. */
+.photos-section { background: var(--paper); color: var(--ink); }
+.coming-soon { border-color: rgba(40,36,31,.3); color: var(--green); }
+.photos-inner > p:not(.eyebrow):not(.photos-date) { color: #5f554c; }
+.photos-actions .outline-button { color: var(--green); border-color: rgba(38,58,49,.45); }
+.photos-date { color: var(--muted); }
+
+/* Assessoria. */
+.planner-contact { padding-top: 30px; }
+
+@media (max-width: 1100px) and (min-width: 851px) {
+  .gift-card { flex-basis: calc((100% - 40px) / 3); }
+}
+@media (max-width: 850px) {
+  .editorial-photo::after, .rosewood-photo::after { inset: 12px; }
+  .church-photo { width: min(100%, 360px); }
+  .rsvp-contact { padding: 85px 22px; }
+  .rsvp-contact .section-heading { padding: 46px 26px 42px; }
+  .gift-card { flex-basis: calc((100% - 16px) / 2); }
+  .info-grid article, .info-grid article:not(:first-child),
+  .info-grid article:nth-child(even), .info-grid article:last-child {
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    min-height: 0;
+    padding: 20px 0;
+    border-right: 0;
+  }
+  .info-grid strong { font-size: 21px; }
+}
+@media (max-width: 580px) {
+  .gift-card { flex-basis: 100%; }
+  .story-copy p:not(.eyebrow), .section-heading p:last-child, .message-copy p:last-child,
+  .travel-heading > p:last-child, .planner-card > p:not(.eyebrow), .gifts p:not(.eyebrow),
+  .photos-inner > p:not(.eyebrow):not(.photos-date), .mural-heading > p:last-child,
+  .reception-intro, .dress-intro { font-size: 15px; }
+}
