@@ -1246,7 +1246,7 @@ footer .footer-monogram + i { margin-top: 34px; }
 .info-grid strong { font-size: 25px; }
 
 /* Hospedagem: cartões menos altos. */
-.hotel-card { min-height: 400px; }
+@media (min-width: 851px) { .hotel-card { min-height: 400px; } }
 .hotel-number { color: #9a8a78; font-size: 22px; }
 
 /* Fotos em fundo claro, separando dos Recados logo abaixo. */
@@ -1284,4 +1284,126 @@ footer .footer-monogram + i { margin-top: 34px; }
   .travel-heading > p:last-child, .planner-card > p:not(.eyebrow), .gifts p:not(.eyebrow),
   .photos-inner > p:not(.eyebrow):not(.photos-date), .mural-heading > p:last-child,
   .reception-intro, .dress-intro { font-size: 15px; }
+}
+
+/* V15 — celular: menos espaço vazio, cartões compactos e toques maiores. */
+.gifts .gift-delivery p:last-child { text-wrap: balance; }
+.photos-actions .outline-button:disabled { opacity: .75; }
+
+@media (max-width: 580px) {
+  .countdown-section, .story, .ceremony, .reception, .dress-code, .rsvp-contact,
+  .gifts, .info-section, .travel-section, .photos-section, .message-section,
+  .mural-section, .planner { padding-top: 76px; padding-bottom: 76px; }
+  .gifts { min-height: 0; }
+  footer { min-height: 440px; padding-top: 64px; padding-bottom: 64px; }
+
+  /* Sobretítulos longos quebram em duas linhas: filetes mais curtos, e nenhum na contagem. */
+  .eyebrow { letter-spacing: .2em; }
+  .countdown-section > .eyebrow { display: block; max-width: 280px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .countdown-section > .eyebrow::before, .countdown-section > .eyebrow::after { display: none; }
+  .dress-inner > .eyebrow::before, .dress-inner > .eyebrow::after,
+  .rsvp .eyebrow::before, .rsvp .eyebrow::after,
+  .gifts-inner > .eyebrow::before, .gifts-inner > .eyebrow::after,
+  .travel-heading > .eyebrow::before, .travel-heading > .eyebrow::after,
+  .photos-inner > .eyebrow::before, .photos-inner > .eyebrow::after,
+  .mural-heading > .eyebrow::before, .mural-heading > .eyebrow::after,
+  .planner-card > .eyebrow::before, .planner-card > .eyebrow::after,
+  .info-intro > .eyebrow::before, .info-intro > .eyebrow::after { width: 22px; }
+  .countdown { margin-top: 36px; gap: 30px 0; }
+
+  /* Fotos: arco da igreja com a moldura dentro da margem. */
+  .ceremony { gap: 48px; }
+  .church-photo { width: calc(100% - 20px); }
+  .church-photo img { outline-offset: 8px; }
+  .editorial-photo, .rosewood-photo { min-height: 460px; }
+  .reception { gap: 48px; }
+  .reception-intro { margin-top: 32px; }
+
+  /* RSVP. */
+  .rsvp-contact .section-heading { padding: 40px 22px 36px; }
+
+  /* Presentes: linhas compactas, nome à esquerda e link à direita. */
+  .gifts p:not(.eyebrow) { margin-bottom: 32px; }
+  .gift-list-grid { gap: 10px; }
+  .gift-card {
+    min-height: 0;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 14px;
+  }
+  .gift-card-label { grid-column: 1; }
+  .gift-card strong { grid-column: 1; font-size: 28px; margin: 6px 0 0; }
+  .gift-card-link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding: 0;
+    border: 0;
+    font-size: 10px;
+    text-align: right;
+    max-width: 100px;
+  }
+  .gift-delivery { margin-top: 36px; }
+  .gifts .gift-delivery p:last-child { font-size: 18px; }
+
+  /* Informações. */
+  .info-intro { margin-bottom: 32px; }
+  .info-grid article, .info-grid article:not(:first-child),
+  .info-grid article:nth-child(even), .info-grid article:last-child {
+    grid-template-columns: 96px 1fr;
+    padding: 17px 0;
+  }
+  .info-grid strong { font-size: 20px; }
+
+  /* Hospedagem: cartões sem recuo lateral e com menos espaço interno. */
+  .hotel-card { padding: 28px 0 30px; }
+  .hotel-number { margin-bottom: 14px; }
+  .hotel-card h3 { font-size: 34px; }
+  .hotel-address { margin-bottom: 18px; }
+  .hotel-description { margin-bottom: 22px; }
+
+  /* Fotos. */
+  .coming-soon { margin-bottom: 26px; }
+  .photos-actions { margin-top: 30px; }
+
+  /* Recados e mural. */
+  .message-layout { gap: 40px; }
+  .wedding-form { gap: 24px; }
+  .mural-heading { margin-bottom: 32px; }
+
+  /* Assessoria: WhatsApp como botão, fácil de tocar. */
+  .planner-contacts { margin-top: 32px; gap: 22px; }
+  .planner-contact { padding-top: 24px; }
+  .planner-contact .text-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 16px;
+    border: 1px solid rgba(40,36,31,.28);
+    letter-spacing: .12em;
+    color: var(--green);
+  }
+}
+
+/* Menu do celular: links maiores, em serifa, fáceis de tocar. */
+@media (max-width: 850px) {
+  .nav-links {
+    padding: 8px 22px 22px;
+    background: var(--paper);
+    max-height: calc(100svh - 66px);
+    overflow-y: auto;
+    box-shadow: 0 18px 30px -24px rgba(40,36,31,.35);
+    border-bottom: 1px solid rgba(40,36,31,.09);
+  }
+  .nav-links a {
+    padding: 13px 0;
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .nav-links .lang-btn { font-size: 12px; }
 }
