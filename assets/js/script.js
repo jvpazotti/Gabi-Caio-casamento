@@ -61,13 +61,20 @@ navLinks.querySelectorAll("a").forEach(link => {
 const navShell = document.querySelector(".nav-shell");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+// Posição na página, sem depender da rolagem atual.
+function pageTop(el) {
+  let top = 0;
+  for (let node = el; node; node = node.offsetParent) top += node.offsetTop;
+  return top;
+}
+
 function anchorTop(target) {
   const blocks = [...target.children].filter(el => !el.matches("[aria-hidden='true'], .svg-sprite") && el.getClientRects().length);
-  const contentTop = Math.min(...blocks.map(el => el.getBoundingClientRect().top), target.getBoundingClientRect().top + target.offsetHeight);
-  const barBottom = navShell.getBoundingClientRect().bottom;
+  const barHeight = navShell.getBoundingClientRect().bottom;
   const gap = window.innerWidth <= 850 ? 28 : 44;
-  const sectionTop = target.getBoundingClientRect().top + window.scrollY - barBottom;
-  return Math.max(sectionTop, contentTop + window.scrollY - barBottom - gap);
+  const sectionTop = pageTop(target) - barHeight;
+  const contentTop = Math.min(...blocks.map(pageTop), pageTop(target) + target.offsetHeight);
+  return Math.max(sectionTop, contentTop - barHeight - gap);
 }
 
 function scrollToSection(target, smooth) {
