@@ -56,22 +56,38 @@ navLinks.querySelectorAll("a").forEach(link => {
   });
 });
 
-const reveals = document.querySelectorAll(".reveal");
+// Links internos: o conteúdo de cada seção para sempre à mesma distância da barra do topo,
+// qualquer que seja o espaçamento interno da seção.
+const navShell = document.querySelector(".nav-shell");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.14 });
-
-  reveals.forEach(el => {
-    el.classList.add("pending-reveal");
-    observer.observe(el);
-  });
-} else {
-  reveals.forEach(el => el.classList.add("visible"));
+function anchorTop(target) {
+  const blocks = [...target.children].filter(el => !el.matches("[aria-hidden='true'], .svg-sprite") && el.getClientRects().length);
+  const contentTop = Math.min(...blocks.map(el => el.getBoundingClientRect().top), target.getBoundingClientRect().top + target.offsetHeight);
+  const barBottom = navShell.getBoundingClientRect().bottom;
+  const gap = window.innerWidth <= 850 ? 28 : 44;
+  const sectionTop = target.getBoundingClientRect().top + window.scrollY - barBottom;
+  return Math.max(sectionTop, contentTop + window.scrollY - barBottom - gap);
 }
+
+function scrollToSection(target, smooth) {
+  window.scrollTo({ top: anchorTop(target), behavior: smooth && !reduceMotion.matches ? "smooth" : "auto" });
+}
+
+document.addEventListener("click", event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const id = decodeURIComponent(link.hash.slice(1));
+  const target = id && document.getElementById(id);
+  if (!target || target.id === "conteudo" || target.id === "inicio") return;
+  event.preventDefault();
+  setMenuOpen(false);
+  history.pushState(null, "", `#${id}`);
+  scrollToSection(target, true);
+});
+
+// Ao abrir o site já com um endereço de seção (ex.: voltando da página Pix).
+window.addEventListener("load", () => {
+  const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target && target.id !== "inicio") scrollToSection(target, false);
+});
