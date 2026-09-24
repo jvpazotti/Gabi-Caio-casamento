@@ -2,6 +2,8 @@
   const config = window.PIX_CONFIG || {};
   const code = typeof config.copyPaste === "string" ? config.copyPaste.trim() : "";
   const imagePath = typeof config.qrImage === "string" ? config.qrImage.trim() : "";
+  const keyText = typeof config.key === "string" ? config.key.trim() : "";
+  const keyCopy = typeof config.keyCopy === "string" && config.keyCopy.trim() ? config.keyCopy.trim() : keyText;
   const pending = document.getElementById("pix-pending");
   const payment = document.getElementById("pix-payment");
   const qr = document.getElementById("pix-qr");
@@ -11,7 +13,7 @@
   let imageReady = false;
 
   function updateAvailability() {
-    const available = imageReady || Boolean(code);
+    const available = imageReady || Boolean(code) || Boolean(keyText);
     pending.hidden = available;
     payment.hidden = !available;
     qr.hidden = !imageReady;
@@ -45,5 +47,20 @@
       status.textContent = message("pixCopyManual");
     }
   });
-  window.addEventListener("weddinglanguagechange", () => { status.textContent = ""; });
+
+  const keyStatus = document.getElementById("pix-key-status");
+  if (keyText) {
+    document.getElementById("pix-key").textContent = keyText;
+    document.getElementById("pix-key-area").hidden = false;
+  }
+  document.getElementById("pix-copy-key").addEventListener("click", async () => {
+    if (!keyCopy) return;
+    try {
+      await navigator.clipboard.writeText(keyCopy);
+      keyStatus.textContent = message("pixKeyCopied");
+    } catch {
+      keyStatus.textContent = message("pixKeyCopyManual");
+    }
+  });
+  window.addEventListener("weddinglanguagechange", () => { status.textContent = ""; keyStatus.textContent = ""; });
 })();

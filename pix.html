@@ -37,6 +37,12 @@
           <img id="pix-qr-image" class="pix-qr-image" alt="QR Code Pix" width="280" height="280" hidden>
         </div>
         <p id="pix-recipient" hidden></p>
+        <div id="pix-key-area" class="pix-key-area" hidden>
+          <p class="pix-key-label" data-i18n="pixKeyLabel">Chave Pix (celular)</p>
+          <p class="pix-key" id="pix-key"></p>
+          <button type="button" class="pix-copy pix-copy-outline" id="pix-copy-key" data-i18n="pixCopyKey">Copiar chave Pix</button>
+          <p id="pix-key-status" class="pix-status" role="status" aria-live="polite"></p>
+        </div>
         <div id="pix-copy-area" hidden>
           <label for="pix-code" data-i18n="pixCodeLabel">Pix Copia e Cola</label>
           <textarea id="pix-code" rows="3" readonly spellcheck="false"></textarea>

@@ -35,3 +35,14 @@
   .pix-main { margin-top: 36px; }
   .pix-panel { padding: 28px 22px; }
 }
+
+/* Chave Pix e QR Code do Itaú. */
+.pix-qr-image { width: min(100%, 300px); border: 1px solid var(--line); }
+#pix-recipient { margin: 0; font-family: var(--serif); font-size: 24px; line-height: 1.3; }
+.pix-key-area { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); }
+.pix-panel .pix-key-label { margin: 0; text-transform: uppercase; letter-spacing: .18em; font-size: 10px; color: var(--muted); }
+.pix-panel .pix-key { margin: 8px 0 4px; font-family: var(--serif); font-size: 30px; letter-spacing: .04em; font-variant-numeric: lining-nums; }
+.pix-copy-outline { background: transparent; color: var(--green); }
+.pix-copy-outline:hover { background: var(--green); color: white; }
+.pix-panel p.pix-status { margin: 8px 0 0; }
+.pix-panel p.pix-status:empty { min-height: 0; margin: 0; }

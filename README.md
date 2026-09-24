@@ -13,7 +13,7 @@ Functions e Blobs para receber, aprovar e exibir recados sem republicar o site.
 - `assets/js/script.js`: contagem regressiva, navegação e animações.
 - `assets/js/forms.js`: envio, erro, confirmação e reinício de RSVP e recados.
 - `assets/js/i18n.js`: traduções PT/EN compartilhadas.
-- `assets/js/pix-config.js`: imagem, código e destinatário do Pix.
+- `assets/js/pix-config.js`: imagem, código, chave e destinatário do Pix.
 - `assets/js/pix.js`: exibição do Pix e botão de copiar.
 - `admin.html`: painel privado de aprovação de recados.
 - `assets/js/mural.js`: mural público com mensagens aprovadas.
@@ -42,27 +42,28 @@ servidor; nenhum envio é feito ao Netlify. Para encerrar, use Ctrl+C.
 Para somente visualizar as páginas, `python3 -m http.server 8000 --directory dist`
 também funciona, mas esse servidor não executa as funções nem recebe formulários.
 
-## Concluir a configuração do Pix
+## Configuração do Pix
 
-**Pendente:** o casal ainda precisa fornecer os dados do banco. Enquanto isso,
-a página mostra “Nosso Pix estará disponível em breve”, sem QR ou código fictício.
+**Configurado:** QR Code do Itaú em nome de Caio de Faro Colen Nunes, chave Pix
+celular +55 (11) 93751-1993, sem valor fixo (o convidado escolhe o valor).
 
-1. Solicite ao casal a imagem original do QR Code de recebimento da conta conjunta
-   e o Pix Copia e Cola correspondente. Para uma lista aberta de presentes,
-   prefira um código de recebimento reutilizável, sem valor fixo e sem vencimento.
-2. Salve a imagem como `assets/images/pix-conta-conjunta.png`, preservando sua margem branca.
-3. Preencha `qrImage` com esse caminho em `assets/js/pix-config.js`.
-4. Cole o código completo em `copyPaste`. Esse campo habilita o botão de copiar.
-   O site usa exatamente o código do banco, sem gerar nem alterar dados de pagamento.
-5. Se desejar, preencha `recipient` com o nome exibido pelo banco.
-6. Abra a página Pix e confira, no aplicativo do banco, se o QR Code e o código
-   copiado identificam a conta conjunta correta. Não é preciso concluir uma transferência.
+Os dados ficam em `assets/js/pix-config.js`:
 
-Apenas a imagem já habilita o QR Code; apenas o código habilita o Copia e Cola.
-Se a imagem não carregar, o código continua disponível, quando preenchido.
-Se nenhum dos dois estiver disponível, a mensagem de disponibilidade futura permanece.
-O botão de copiar funciona em HTTPS ou localhost. Se o navegador bloquear a cópia,
-o texto é selecionado para cópia manual.
+- `qrImage`: `assets/images/pix-qr.png`, recortada do QR original com margem branca.
+- `copyPaste`: o código lido do próprio QR, sem alterações (CRC conferido).
+- `recipient`: nome exibido pelo banco.
+- `key` / `keyCopy`: a chave como aparece para o convidado e como é copiada.
+
+Para trocar de conta, substitua a imagem e os campos acima pelos novos dados do banco.
+O site usa exatamente o código do banco, sem gerar nem alterar dados de pagamento.
+Depois, abra a página Pix e confira no aplicativo do banco se o QR Code e o código
+copiado identificam o destinatário correto. Não é preciso concluir uma transferência.
+
+Apenas a imagem já habilita o QR Code; apenas o código habilita o Copia e Cola;
+apenas a chave habilita o botão de copiar a chave. Se nada estiver preenchido,
+a página mostra “Nosso Pix estará disponível em breve”.
+Os botões de copiar funcionam em HTTPS ou localhost. Se o navegador bloquear a cópia,
+o código é selecionado para cópia manual.
 
 ## Hospedagem e formulários
 

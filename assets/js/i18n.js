@@ -16,7 +16,11 @@ Object.assign(translations.pt, {
   "pixBack": "← Voltar aos presentes",
   "pixThanks": "Com carinho, Caio & Gabriela",
   "pixCopied": "Código copiado! Cole no aplicativo do seu banco.",
-  "pixCopyManual": "Selecione e copie o código acima para colar no aplicativo do banco."
+  "pixCopyManual": "Selecione e copie o código acima para colar no aplicativo do banco.",
+  "pixKeyLabel": "Chave Pix (celular)",
+  "pixCopyKey": "Copiar chave Pix",
+  "pixKeyCopied": "Chave copiada! Cole no aplicativo do seu banco.",
+  "pixKeyCopyManual": "Digite a chave acima no aplicativo do seu banco."
 });
 Object.assign(translations.en, {
   "pixGiftLabel": "Gift",
@@ -31,7 +35,11 @@ Object.assign(translations.en, {
   "pixBack": "← Back to gifts",
   "pixThanks": "With love, Caio & Gabriela",
   "pixCopied": "Code copied! Paste it into your banking app.",
-  "pixCopyManual": "Select and copy the code above, then paste it into your banking app."
+  "pixCopyManual": "Select and copy the code above, then paste it into your banking app.",
+  "pixKeyLabel": "Pix key (mobile number)",
+  "pixCopyKey": "Copy Pix key",
+  "pixKeyCopied": "Key copied! Paste it into your banking app.",
+  "pixKeyCopyManual": "Type the key above into your banking app."
 });
 Object.assign(translations.pt, {
   "weddingDate": "24 de abril de 2027",
