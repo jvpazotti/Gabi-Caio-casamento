@@ -985,3 +985,128 @@ input[type="text"]::placeholder, textarea::placeholder { color: var(--muted); op
 .mural-consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--cream); flex-shrink: 0; }
 @media (max-width: 850px) { .mural-section { padding: 85px 22px; } .mural-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 580px) { .mural-grid { grid-template-columns: 1fr; } .mural-card { padding: 26px; } }
+
+/* Atualização set/2026 — cerimônia, presentes, hotéis e fotos */
+.ceremony {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(360px, .8fr);
+  gap: 7vw;
+}
+.church-photo {
+  margin: 0;
+  align-self: center;
+  background: rgba(251,248,242,.4);
+  border: 1px solid rgba(40,36,31,.12);
+}
+.church-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: saturate(.76) contrast(.96);
+}
+.church-photo figcaption {
+  padding: 13px 16px 14px;
+  color: #6b6055;
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.rsvp-contact { min-height: 420px; display: flex; align-items: center; }
+.rsvp-contact .section-heading { margin-bottom: 0; }
+.rsvp-contact .section-heading p:last-child { max-width: 600px; margin: 24px auto 0; font-size: 15px; }
+.gift-list-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1100px; }
+.gift-delivery {
+  max-width: 720px;
+  margin: 54px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(40,36,31,.18);
+  text-align: center;
+}
+.gift-delivery .eyebrow { margin-bottom: 12px; }
+.gifts .gift-delivery p:last-child {
+  margin: 0 auto;
+  color: #5f554c;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+.hotel-grid { max-width: 1320px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hotel-card { padding-left: 28px; padding-right: 28px; }
+.hotel-card h3 { font-size: clamp(31px, 2.7vw, 38px); }
+.photos-section {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 135px 8vw;
+  text-align: center;
+}
+.photos-inner { max-width: 860px; margin: 0 auto; }
+.photos-section h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(50px, 6.5vw, 88px);
+  line-height: 1;
+  letter-spacing: -.025em;
+  margin: 18px 0 24px;
+  text-wrap: balance;
+}
+.coming-soon {
+  display: inline-block;
+  margin: 0 0 34px;
+  padding: 8px 14px;
+  border: 1px solid rgba(238,229,215,.35);
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: 9px;
+}
+.photos-inner > p:not(.eyebrow):not(.photos-date) {
+  max-width: 680px;
+  margin: 0 auto 17px;
+  color: #d4c9bc;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.photos-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 700px;
+  margin: 42px auto 18px;
+}
+.photos-actions .outline-button {
+  margin: 0;
+  color: var(--cream);
+  border-color: rgba(238,229,215,.45);
+  background: transparent;
+}
+.photos-actions .outline-button:disabled { opacity: .58; cursor: default; }
+.photos-date {
+  margin: 20px 0 0;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #b9ada0;
+}
+footer .footer-monogram + i { margin-top: 34px; }
+
+@media (max-width: 1100px) and (min-width: 851px) {
+  .hotel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hotel-card { border-bottom: 1px solid rgba(40,36,31,.20); }
+  .hotel-card:nth-child(2n) { border-right: 0; }
+  .hotel-card:nth-last-child(-n+2) { border-bottom: 0; }
+  .gift-list-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 850px) {
+  .ceremony { grid-template-columns: 1fr; gap: 58px; padding: 100px 22px; }
+  .church-photo { width: 100%; max-width: 650px; }
+  .gift-list-grid { grid-template-columns: 1fr; }
+  .gift-delivery { margin-top: 42px; }
+  .gifts .gift-delivery p:last-child { font-size: 19px; }
+  .hotel-grid { grid-template-columns: 1fr; }
+  .photos-section { padding: 100px 22px; }
+  .photos-section h2 { font-size: clamp(44px, 11vw, 62px); }
+  .photos-actions { grid-template-columns: 1fr; }
+}

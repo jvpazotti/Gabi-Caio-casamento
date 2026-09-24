@@ -32,6 +32,7 @@
       <a href="#rsvp">RSVP</a>
       <a href="#presentes" data-i18n="navGifts">Presentes</a>
       <a href="#hospedagem" data-i18n="navHotels">Hospedagem</a>
+      <a href="#fotos" data-i18n="navPhotos">Fotos</a>
       <a href="#recados" data-i18n="navMessages">Recados</a>
       <span class="lang-switch" aria-label="Selecionar idioma" data-i18n-aria="chooseLanguage">
         <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
@@ -53,7 +54,7 @@
         <p class="eyebrow" data-i18n="heroLocation">São Paulo · Brasil</p>
         <h1>Caio <em>&</em> Gabriela</h1>
         <p class="hero-date">24 · 04 · 2027</p>
-        <p class="hero-line" data-i18n="heroLine">Esperamos vocês para celebrar este dia conosco.</p>
+        <p class="hero-line" data-i18n="heroLine">Esperamos vocês para celebrar este dia conosco!</p>
       </div>
       <a href="#contagem" class="scroll-cue" aria-label="Continuar para a contagem regressiva" data-i18n-aria="countdownLink">
         <span data-i18n="scroll">deslize</span>
@@ -75,8 +76,8 @@
       <div class="story-grid reveal">
         <div class="story-copy">
           <p class="eyebrow" data-i18n="weddingDate">24 de abril de 2027</p>
-          <h2 data-i18n="ourWedding">Nosso casamento</h2>
-          <p data-i18n="story1">Chegou a hora de celebrarmos um dos momentos mais especiais das nossas vidas — e será ainda mais especial ter vocês ao nosso lado.</p>
+          <h2 data-i18n="ourWedding">O nosso dia</h2>
+          <p data-i18n="story1">Depois de tantos capítulos juntos, chegou a hora de viver um dos mais especiais: celebrar o nosso casamento com as pessoas que fazem parte da nossa história.</p>
           <p data-i18n="story2">Criamos este espaço para reunir as informações do nosso casamento. Esperamos vocês em São Paulo.</p>
         </div>
         <div class="editorial-photo">
@@ -86,12 +87,6 @@
     </section>
 
     <section class="venue ceremony" id="cerimonia">
-      <div class="venue-ornament" aria-hidden="true">
-        <svg viewBox="0 0 440 520" role="presentation">
-          <path d="M40 500V220C40 111 119 30 220 30s180 81 180 190v280" />
-          <path d="M85 500V230c0-81 59-145 135-145s135 64 135 145v270" />
-        </svg>
-      </div>
       <div class="venue-copy reveal">
         <p class="eyebrow" data-i18n="ceremonyEyebrow">A cerimônia</p>
         <h2>Paróquia São José<br><span>do Jardim Europa</span></h2>
@@ -110,15 +105,19 @@
           <span data-i18n="directions">Como chegar</span> <span>↗</span>
         </a>
       </div>
+      <figure class="church-photo reveal">
+        <img src="assets/images/foto-igreja.jpg" alt="Paróquia São José do Jardim Europa" loading="lazy" referrerpolicy="no-referrer" />
+        <figcaption data-i18n="churchPhotoCaption">Paróquia São José do Jardim Europa</figcaption>
+      </figure>
     </section>
     <section class="venue reception" id="recepcao">
       <div class="botanical-shadow" aria-hidden="true"></div>
       <div class="venue-copy reveal">
         <p class="eyebrow" data-i18n="partyEyebrow">A festa</p>
-        <h2>Rosewood<br><span>São Paulo</span></h2>
+        <h2>Jardim dos Ciprestes<br><span>Rosewood São Paulo</span></h2>
         <p class="reception-intro" data-i18n="partyIntro">Após a cerimônia, esperamos vocês para celebrar conosco.</p>
-        <p class="address">Rua Itapeva, 435<br>Bela Vista · São Paulo — SP</p>
-        <a class="text-link light-link" href="https://www.google.com/maps/search/?api=1&query=Rosewood+S%C3%A3o+Paulo+Rua+Itapeva+435+S%C3%A3o+Paulo" target="_blank" rel="noopener">
+        <p class="address">Alameda Rio Claro, 40<br>Jardim dos Ciprestes · São Paulo — SP</p>
+        <a class="text-link light-link" href="https://www.google.com/maps/search/?api=1&query=Jardim+dos+Ciprestes+Rosewood+Alameda+Rio+Claro+40+S%C3%A3o+Paulo" target="_blank" rel="noopener">
           <span data-i18n="directions">Como chegar</span> <span>↗</span>
         </a>
       </div>
@@ -147,64 +146,19 @@
       </div>
     </section>
 
-    <section class="rsvp" id="rsvp">
+    <section class="rsvp rsvp-contact" id="rsvp">
       <div class="section-heading reveal">
         <p class="eyebrow">RSVP</p>
-        <h2 data-i18n="rsvpTitle">Confirme sua presença</h2>
-        <p data-i18n="rsvpIntro">Será uma alegria celebrar este momento com você.</p>
+        <h2 data-i18n="rsvpTitle">Confirmação de presença</h2>
+        <p data-i18n="rsvpIntro">Nossa equipe entrará em contato com você via WhatsApp. Não se esqueça de responder!</p>
       </div>
-
-      <form class="wedding-form reveal" id="rsvp-form" name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="rsvp" />
-        <input type="hidden" name="subject" data-remove-prefix value="Novo RSVP — Caio & Gabriela" />
-        <p class="hidden-field" aria-hidden="true"><label>Não preencha: <input tabindex="-1" autocomplete="off" name="bot-field" /></label></p>
-
-        <div class="field full">
-          <label for="rsvp-name" data-i18n="fullName">Nome completo</label>
-          <input id="rsvp-name" name="nome" type="text" autocomplete="name" required />
-        </div>
-
-        <fieldset class="field full attendance">
-          <legend data-i18n="attendanceQuestion">Você estará conosco?</legend>
-          <label class="attendance-option">
-            <input type="radio" name="presenca" value="sim" required />
-            <span data-i18n="yesAttend">Sim, estarei presente</span>
-          </label>
-          <label class="attendance-option">
-            <input type="radio" name="presenca" value="nao" required />
-            <span data-i18n="noAttend">Infelizmente não poderei comparecer</span>
-          </label>
-        </fieldset>
-
-        <div class="field full" id="attending-details" hidden>
-          <label for="food"><span data-i18n="foodRestriction">Restrição alimentar</span> <small data-i18n="optional">(opcional)</small></label>
-          <input id="food" name="restricao_alimentar" type="text" placeholder="Conte para nós se houver alguma." data-i18n-placeholder="foodPlaceholder" />
-        </div>
-
-        <div class="field full">
-          <label for="note"><span data-i18n="observation">Observação</span> <small data-i18n="optional">(opcional)</small></label>
-          <textarea id="note" name="observacao" rows="3"></textarea>
-        </div>
-
-        <button class="primary-button" id="rsvp-submit" type="submit" data-i18n="confirmAttendance">Confirmar presença</button>
-        <p class="form-error" id="rsvp-error" role="alert" hidden data-i18n="rsvpError">Não conseguimos registrar sua resposta agora. Por favor, tente novamente.</p>
-      </form>
-
-      <div class="rsvp-success" id="rsvp-success" tabindex="-1" hidden>
-        <p class="eyebrow">RSVP</p>
-        <h3 data-i18n="rsvpSuccessTitle">Resposta registrada!</h3>
-        <p data-i18n="rsvpSuccessText">Obrigada. Sua confirmação foi registrada com sucesso.</p>
-        <p class="rsvp-success-note" data-i18n="rsvpSuccessNote">Você pode confirmar outra pessoa da família pelo botão abaixo.</p>
-        <button class="primary-button" type="button" id="rsvp-another" data-i18n="rsvpAnother">Confirmar outra pessoa</button>
-      </div>
-
     </section>
 
     <section class="gifts" id="presentes">
       <div class="gifts-inner reveal">
         <p class="eyebrow" data-i18n="giftsEyebrow">Lista de presentes</p>
-        <h2 data-i18n="giftsTitle">Ter vocês conosco já é o melhor presente.</h2>
-        <p data-i18n="giftsText">Para aqueles que desejarem nos presentear, reunimos nossas listas por aqui.</p>
+        <h2 data-i18n="giftsTitle">Ter vocês conosco já é o melhor presente</h2>
+        <p data-i18n="giftsText">Para aqueles que desejarem nos presentear, reunimos nossas listas por aqui:</p>
 
         <div class="gift-list-grid">
           <a class="gift-card" href="https://www.zara.com/share/wishlist/qp7puURIPVWSizlJT8yzcg?utm_medium=Wishlist_Compartida&utm_source=APP&locale=pt_BR" target="_blank" rel="noopener">
@@ -218,11 +172,29 @@
             <strong>Toolbox</strong>
             <span class="gift-card-link" data-i18n="openGiftList">Ver lista ↗</span>
           </a>
+
+          <a class="gift-card" href="https://taniabulhoeslista.com.br/lista/7421" target="_blank" rel="noopener">
+            <span class="gift-card-label" data-i18n="giftListLabel">Lista</span>
+            <strong>Tania Bulhões</strong>
+            <span class="gift-card-link" data-i18n="openGiftList">Ver lista ↗</span>
+          </a>
+
           <a class="gift-card" href="pix.html" target="_blank" rel="noopener" data-pix-link>
             <span class="gift-card-label" data-i18n="pixGiftLabel">Presente</span>
             <strong>Pix</strong>
             <span class="gift-card-link" data-i18n="openPix">Presentear com Pix ↗</span>
           </a>
+
+          <a class="gift-card" href="https://www.mickey.com.br/lista-presente/4b0250793549726d5c1ea3906726ebfe" target="_blank" rel="noopener">
+            <span class="gift-card-label" data-i18n="giftListLabel">Lista</span>
+            <strong>Mickey Presentes</strong>
+            <span class="gift-card-link" data-i18n="openGiftList">Ver lista ↗</span>
+          </a>
+        </div>
+
+        <div class="gift-delivery">
+          <p class="eyebrow" data-i18n="deliveryEyebrow">Endereço para entrega de presentes</p>
+          <p data-i18n="deliveryAddress">Rua Agissê, 287, apto 61 · Jardim das Bandeiras<br>São Paulo/SP · CEP 05439-010</p>
         </div>
       </div>
     </section>
@@ -236,7 +208,7 @@
         <article><small data-i18n="dateLabel">Data</small><strong data-i18n="weddingDate">24 de abril de 2027</strong></article>
         <article><small data-i18n="timeLabel">Horário</small><strong data-i18n="weddingTime">16h30</strong></article>
         <article><small data-i18n="ceremonyLabel">Cerimônia</small><strong>Paróquia São José<br>Jardim Europa</strong></article>
-        <article><small data-i18n="partyLabel">Festa</small><strong>Rosewood<br>São Paulo</strong></article>
+        <article><small data-i18n="partyLabel">Festa</small><strong>Jardim dos Ciprestes<br>Rosewood São Paulo</strong></article>
         <article><small>Dress code</small><strong>Formal</strong></article>
       </div>
     </section>
@@ -246,35 +218,58 @@
       <div class="travel-heading reveal">
         <p class="eyebrow" data-i18n="travelEyebrow">Sugestões de hospedagem</p>
         <h2 data-i18n="travelTitle">Onde ficar em São Paulo</h2>
-        <p data-i18n="travelIntro">Selecionamos algumas opções de hospedagem próximas à festa, em diferentes estilos e faixas de conforto. As tarifas podem variar conforme a data e a disponibilidade.</p>
+        <p data-i18n="travelIntro">Selecionamos quatro opções próximas à celebração, em diferentes estilos e faixas de conforto. As tarifas podem variar conforme a data e a disponibilidade.</p>
       </div>
       <div class="hotel-grid reveal">
-        <article class="hotel-card">
-          <div class="hotel-number">01</div>
-          <p class="hotel-kicker" data-i18n="hotel1Kicker">Prático e econômico</p>
-          <h3>H3 Hotel Paulista</h3>
-          <p class="hotel-address">Rua Rocha, 217 · Bela Vista</p>
-          <p class="hotel-description" data-i18n="hotel1Text">Uma opção objetiva para quem quer ficar na região da Paulista e da Bela Vista sem priorizar uma hospedagem mais sofisticada.</p>
-          <a class="hotel-link" href="https://www.h3hotel.com.br/" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
-        </article>
         <article class="hotel-card featured-hotel">
+          <div class="hotel-number">01</div>
+          <p class="hotel-kicker" data-i18n="hotel1Kicker">No coração da celebração</p>
+          <h3>Rosewood São Paulo</h3>
+          <p class="hotel-address">Rua Itapeva, 435 · Bela Vista</p>
+          <p class="hotel-description" data-i18n="hotel1Text">A opção mais conveniente para quem deseja se hospedar no próprio complexo onde acontecerá a festa.</p>
+          <a class="hotel-link" href="https://rosewood-sao-paulo.hotelcheckins.com/" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
+        </article>
+        <article class="hotel-card">
           <div class="hotel-number">02</div>
-          <p class="hotel-kicker" data-i18n="hotel2Kicker">Na mesma rua do Rosewood</p>
-          <h3>Paulista Wall Street</h3>
-          <p class="hotel-address">Rua Itapeva, 636 · Bela Vista</p>
-          <p class="hotel-description" data-i18n="hotel2Text">Especialmente conveniente pela localização: fica na própria Rua Itapeva, a mesma da festa no Rosewood São Paulo.</p>
-          <a class="hotel-link" href="https://travelinn.com.br/hotel/paulista-wall-street/" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
+          <p class="hotel-kicker" data-i18n="hotel2Kicker">Próximo à Avenida Paulista</p>
+          <h3>L'Hotel PortoBay São Paulo</h3>
+          <p class="hotel-address">Alameda Campinas, 266 · Jardim Paulista</p>
+          <p class="hotel-description" data-i18n="hotel2Text">Uma opção sofisticada a poucos metros da Avenida Paulista, com acesso fácil à região da festa.</p>
+          <a class="hotel-link" href="https://www.portobay.com/pt/hoteis/hoteis-sao-paulo/l-hotel-portobay-sao-paulo" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
         </article>
         <article class="hotel-card">
           <div class="hotel-number">03</div>
-          <p class="hotel-kicker" data-i18n="hotel3Kicker">Mais conforto</p>
-          <h3>Blue Tree Premium Paulista</h3>
-          <p class="hotel-address">Rua Peixoto Gomide, 707 · Cerqueira César</p>
-          <p class="hotel-description" data-i18n="hotel3Text">Uma alternativa mais confortável, próxima à Avenida Paulista e ao MASP, com acesso fácil à região da festa.</p>
-          <a class="hotel-link" href="https://www.bluetree.com.br/hotel/blue-tree-premium-paulista" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
+          <p class="hotel-kicker" data-i18n="hotel3Kicker">Prático e bem localizado</p>
+          <h3>Intercity Pamplona Paulista</h3>
+          <p class="hotel-address">Rua Pamplona, 83 · Bela Vista</p>
+          <p class="hotel-description" data-i18n="hotel3Text">Uma alternativa prática, próxima à Paulista e com deslocamento simples para a celebração.</p>
+          <a class="hotel-link" href="https://www.intercityhoteis.com.br/hotel-sao-paulo/hotel-intercity-pamplona-paulista" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
+        </article>
+        <article class="hotel-card">
+          <div class="hotel-number">04</div>
+          <p class="hotel-kicker" data-i18n="hotel4Kicker">Conforto perto da Paulista</p>
+          <h3>Mercure São Paulo Paulista</h3>
+          <p class="hotel-address">Rua São Carlos do Pinhal, 87 · Bela Vista</p>
+          <p class="hotel-description" data-i18n="hotel4Text">Uma opção confortável e funcional, próxima à Avenida Paulista e à região da festa.</p>
+          <a class="hotel-link" href="https://all.accor.com/hotel/5176/index.pt-br.shtml" target="_blank" rel="noopener"><span data-i18n="seeHotel">Ver hotel</span> <span>↗</span></a>
         </article>
       </div>
       <p class="hotel-note reveal" data-i18n="hotelNote">As sugestões são apenas referências para facilitar a organização dos convidados. Recomendamos consultar diretamente cada hotel para disponibilidade e tarifas.</p>
+    </section>
+
+    <section class="photos-section" id="fotos">
+      <div class="photos-inner reveal">
+        <p class="eyebrow" data-i18n="photosEyebrow">Fotos</p>
+        <h2 data-i18n="photosTitle">O casamento pelos olhos de vocês</h2>
+        <span class="coming-soon" data-i18n="comingSoon">Em breve</span>
+        <p data-i18n="photosIntro">No dia do casamento, haverá um QR Code nas mesas e um botão aqui no site para que os convidados possam enviar as fotos que tirarem.</p>
+        <p data-i18n="photosAfter">Depois, volte aqui para ver a celebração pelos olhos dos nossos convidados. Alguns dias após o evento, as fotos oficiais também estarão por aqui.</p>
+        <div class="photos-actions" aria-label="Recursos de fotos disponíveis em breve">
+          <button class="outline-button" type="button" disabled data-i18n="uploadPhotos">Suba as fotos que tirou aqui!</button>
+          <button class="outline-button" type="button" disabled data-i18n="viewGuestPhotos">Ver fotos dos convidados</button>
+        </div>
+        <p class="photos-date" data-i18n="photosAvailable">Disponível a partir de 24.04.2027</p>
+      </div>
     </section>
 
     <section class="message-section" id="recados">
@@ -354,10 +349,8 @@
     <div class="footer-monogram" aria-label="Monograma de Caio e Gabriela">
       <svg viewBox="0 0 288 454" role="img" aria-hidden="true" focusable="false"><use href="#cg-exlibris"></use></svg>
     </div>
-    <p>24 · 04 · 2027</p>
-    <p>São Paulo</p>
     <i></i>
-    <p class="footer-last" data-i18n="footerLast">Nos vemos em abril.</p>
+    <p class="footer-last" data-i18n="footerLast">Nos vemos em abril!</p>
   </footer>
 
   <script src="assets/js/i18n.js"></script>

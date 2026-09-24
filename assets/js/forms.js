@@ -1,18 +1,23 @@
-// Netlify Forms: mantém os nomes dos formulários e dos campos existentes.
+// Netlify Forms: mantém o formulário de recados e aceita a ausência do RSVP,
+// que nesta versão será confirmado pela assessoria via WhatsApp.
 (() => {
   const rsvp = document.getElementById("rsvp-form");
   const details = document.getElementById("attending-details");
   const food = document.getElementById("food");
 
   function updateAttendance() {
+    if (!rsvp || !details || !food) return;
     const attending = rsvp.querySelector('[name="presenca"]:checked')?.value === "sim";
     details.hidden = !attending;
     food.disabled = !attending;
     if (!attending) food.value = "";
   }
-  rsvp.addEventListener("change", updateAttendance);
-  window.addEventListener("pageshow", updateAttendance);
-  updateAttendance();
+
+  if (rsvp) {
+    rsvp.addEventListener("change", updateAttendance);
+    window.addEventListener("pageshow", updateAttendance);
+    updateAttendance();
+  }
 
   function attachForm(prefix, labelKey) {
     const form = document.getElementById(`${prefix}-form`);
@@ -20,6 +25,8 @@
     const success = document.getElementById(`${prefix}-success`);
     const error = document.getElementById(`${prefix}-error`);
     const another = document.getElementById(`${prefix}-another`);
+    if (!form || !button || !success || !error || !another) return;
+
     let sending = false;
     let completed = false;
 
@@ -60,7 +67,6 @@
         success.focus();
       } catch {
         error.hidden = false;
-        // Preserva o texto e permite uma nova tentativa manual.
       } finally {
         clearTimeout(timeout);
         sending = false;
@@ -78,7 +84,7 @@
       error.hidden = true;
       form.hidden = false;
       if (prefix === "rsvp") updateAttendance();
-      form.querySelector('input[name="nome"]').focus();
+      form.querySelector('input[name="nome"]')?.focus();
     });
   }
 
